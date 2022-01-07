@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(s)
+        {
+            let answer;
+            let shash = new Map();
+            for(let x of s)
+            {
+                if(shash.has(x))
+                {
+                    shash.set(x,shash.get(x)+1);
+                }
+                else
+                {
+                    shash.set(x,1);
+                }
+            }
+            let max = Number.MIN_SAFE_INTEGER;
+            for(let [key,val] of shash)
+            {
+                if(val > max)
+                {
+                    max = val;
+                    answer = key;
+                }
+            }
+            return answer;
+//hashmap을 써보기는 했는데, 오랫만이라 해멤.
+//자바 hashmap은 https://coding-factory.tistory.com/556 참조.
+/*hashmap<Integer,String> map = new HashMap<Integer, String>*/
+/*언어별로 사용법이 다르니 숙지할 필요가 있다.  */ 
+        }
+        let str = "BAVBACCACCBDEDE";
+        console.log(solution(str));
+/*
+
+hMap은 Map의 일종으로 key와 value의 쌍으로 이루어진 데이터를 보관합니다.
+HashMap은 다음과 같은 특징이 있습니다.
+null key와 null value를 모두 허용합니다.
+내부적으로 데이터에 접근할 때 동기화를 보장하지 않습니다.
+데이터의 순서를 보장하지 않습니다.
+중복된 key값을 허용하진 않지만, 중복된 값은 갖을 수 있습니다.
+
+*/
+    </script>
+    <input type="password">
+</body>
+
+</html>
+
